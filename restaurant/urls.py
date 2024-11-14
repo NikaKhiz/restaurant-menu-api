@@ -3,10 +3,12 @@ from django.urls import path, include
 from rest_framework import routers
 from debug_toolbar.toolbar import debug_toolbar_urls
 from user.views import UserViewSet
+from lunchroom.views import RestaurantViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
+router.register(r'restaurants', RestaurantViewSet, basename='restaurant')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
