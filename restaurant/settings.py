@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +42,12 @@ INSTALLED_APPS = [
     # third party packages
     'rest_framework',
     'debug_toolbar',
+    'versatileimagefield',
+    'admin_auto_filters',
 
     # custom
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
+    'lunchroom.apps.LunchroomConfig'
 ]
 
 MIDDLEWARE = [
@@ -119,14 +123,29 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('ka', 'Georgian'),
+)
+
+MODELTRANSLATION_LANGUAGES = ('en', 'ka')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en',)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
