@@ -46,8 +46,8 @@ class Dish(models.Model):
     
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=255, unique=True, blank=False, null=False, verbose_name=_('name'))
-    dish = models.ForeignKey('lunchroom.Dish', related_name='ingredients', null=False, blank=False, on_delete=models.CASCADE, verbose_name=_('dish'))
+    name = models.CharField(max_length=255, blank=False, null=False, verbose_name=_('name'))
+    dish = models.ManyToManyField('lunchroom.Dish', related_name='ingredients', verbose_name=_('dish'))
     
     class Meta:
         verbose_name = _("ingredient")

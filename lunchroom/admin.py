@@ -37,8 +37,7 @@ class DishAdmin(TabbedTranslationAdmin):
 
 @admin.register(Ingredient)
 class IngredientAdmin(TabbedTranslationAdmin):
-    list_display = ('name', 'dish')
+    list_display = ('name',)
     search_fields = ('name',)
-    list_filter = ['name', 'dish']
+    list_filter = ['name',]
     ordering = ('name',)
-    list_editable = ('dish',)
