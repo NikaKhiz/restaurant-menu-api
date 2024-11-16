@@ -34,7 +34,7 @@
 
    ```bash
    git clone https://github.com/NikaKhiz/restaurant-menu-api.git
-   cd django-store
+   cd restaurant-menu-api
    ```
 
 2. **Create a virtual environment**:
