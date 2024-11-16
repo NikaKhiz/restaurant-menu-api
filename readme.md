@@ -8,11 +8,12 @@
 1. **localhost/api displays available links.**
 2. **localhost/users displays registered users.**
 3. **localhost/restaurants displays created restaurants.**
-4. **localhost/menus displays created menus.**
-5. **localhost/submenus displays created submenus.**
-6. **localhost/submenus/2/get_dishes displays dishes associated with submenu.**
+4. **localhost/menus displays created menucategory.**
+5. **localhost/submenus displays created submenucategories.**
+6. **localhost/submenus/2/ displays submenucategory and dishes associated with submenu.**
 7. **localhost/dishes displays created dishes.**
 
+<p>unauthorized users cant add or modifie objects.</p>
 <p>Site has superuser (user:admin, pass:admin).</p>
 
 ### Table of Contents
