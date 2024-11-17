@@ -9,6 +9,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=150, unique=True, null=False, blank=False, verbose_name=_('address'))
     phone_number = models.CharField(max_length=15, unique=True, blank=False, null=False, verbose_name=_('phone_number'))
     image = VersatileImageField(upload_to='restaurant/', null=True, blank=True, verbose_name=_('image'))
+    user = models.ForeignKey("user.CustomUser", related_name="restaurants", on_delete=models.CASCADE, verbose_name=_('user'))
 
     class Meta:
         verbose_name = _("restaurant")
