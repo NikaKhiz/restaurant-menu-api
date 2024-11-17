@@ -10,7 +10,7 @@ router.register(r'users', UserViewSet, basename='user')
 router.register(r'restaurants', RestaurantViewSet, basename='restaurant')
 router.register(r'menus', MenuViewSet, basename='menu')
 router.register(r'submenus', SubMenuViewSet, basename='submenu')
-router.register(r'dishes', DishViewSet, basename='dishes')
+router.register(r'dishes', DishViewSet, basename='dish')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
