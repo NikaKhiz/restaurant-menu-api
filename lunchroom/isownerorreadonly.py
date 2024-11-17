@@ -8,26 +8,39 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
         
         if  request.user and request.user.is_authenticated:
-            return True
-            
-        if view.basename == 'restaurant':
-            return True
-        
-        if view.basename == 'menu':
-            restaurant = request.data.get('restaurant')
-            if restaurant and Restaurant.objects.get(id=restaurant).user == request.user:
+            if view.basename == 'restaurant':
                 return True
-            return False
-        if view.basename == 'submenu':
-            menu_id = request.data.get('parent')
-            if menu_id and Menu.objects.get(id=menu_id).restaurant.user == request.user:
-                return True
-            return False
-        if view.basename == 'dish':
-            menu_id = request.data.get('menu')
-            if menu_id and Menu.objects.get(id=menu_id).restaurant.user == request.user:
-                return True
-            return False
+
+            if view.basename == 'menu':
+                restaurant = request.data.get('restaurant')
+                if restaurant is not None:
+                    if restaurant and Restaurant.objects.get(id=restaurant).user == request.user:
+                        return True
+                    else:
+                        return False
+                else:
+                    return True
+                
+            if view.basename == 'submenu':
+                menu_id = request.data.get('parent')
+                if menu_id is not None:
+                    if menu_id and Menu.objects.get(id=menu_id).restaurant.user == request.user:
+                        return True
+                    else:
+                        return False
+                else:
+                    return True
+                
+            if view.basename == 'dish':
+                menu_id = request.data.get('menu')
+                if menu_id is not None:
+
+                    if menu_id and Menu.objects.get(id=menu_id).restaurant.user == request.user:
+                        return True
+                    else:
+                        return False
+                else:
+                    return True
 
         return False
 
