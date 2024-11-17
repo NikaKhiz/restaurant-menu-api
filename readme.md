@@ -15,6 +15,7 @@
 
 <p>unauthorized users cant add or modifie objects.</p>
 <p>Site has superuser (user:admin, pass:admin).</p>
+<p>Site has testuser (user:admin2, pass:admin2).</p>
 
 ### Table of Contents
 
