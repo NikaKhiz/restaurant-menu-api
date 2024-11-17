@@ -29,4 +29,4 @@ class DishViewSet(viewsets.ModelViewSet):
     queryset = Dish.objects.prefetch_related('ingredients')
     serializer_class = DishSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    filterset_fields = ('name',)
+    filterset_fields = ('name','menu')
