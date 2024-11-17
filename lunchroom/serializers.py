@@ -70,4 +70,4 @@ class SubMenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
         fields = ['name', 'image', 'parent', 'restaurant', 'dishes']
-        extra_kwargs = {'id': {'write_only': True}, 'parent': {'write_only': True}, 'restaurant': {'write_only': True}}
+        extra_kwargs = {'id': {'write_only': True}, 'name':{'write_only': True}, 'image':{'write_only': True}, 'parent': {'write_only': True}, 'restaurant': {'write_only': True}}
