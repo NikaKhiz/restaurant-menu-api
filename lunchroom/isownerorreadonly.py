@@ -7,8 +7,8 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
         
-        if  not request.user or not request.user.is_authenticated:
-            return False
+        if  request.user and request.user.is_authenticated:
+            return True
             
         if view.basename == 'restaurant':
             return True
@@ -17,7 +17,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             restaurant = request.data.get('restaurant')
             if restaurant and Restaurant.objects.get(id=restaurant).user == request.user:
                 return True
-            return True
+            return False
         if view.basename == 'submenu':
             menu_id = request.data.get('parent')
             if menu_id and Menu.objects.get(id=menu_id).restaurant.user == request.user:
